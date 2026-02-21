@@ -12,12 +12,16 @@
         }
 
         :root {
-            --black: #0a0a0a;
-            --dark-gray: #1a1a1a;
-            --gold: #d4af37;
-            --gold-light: #f4d03f;
+            --black: #0a0a0f;
+            --dark-purple: #1a0b2e;
+            --deep-purple: #2d1b4e;
+            --purple: #4a148c;
+            --fuchsia: #c026d3;
+            --fuchsia-light: #e879f9;
+            --neon-pink: #ff00ff;
             --white: #ffffff;
-            --gray-text: #a0a0a0;
+            --gray-text: #b8b8d1;
+            --lavender: #e6e6fa;
         }
 
         body {
@@ -37,7 +41,7 @@
             align-items: center;
             text-align: center;
             padding: 2rem;
-            background: linear-gradient(135deg, var(--black) 0%, #1a1a2e 100%);
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-purple) 50%, var(--deep-purple) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -49,7 +53,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(192,38,211,0.15) 0%, transparent 70%);
             animation: pulse 4s ease-in-out infinite;
         }
 
@@ -65,7 +69,7 @@
         }
 
         .pain-point {
-            color: var(--gold);
+            color: var(--fuchsia-light);
             font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -79,7 +83,7 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--white) 0%, var(--gold-light) 100%);
+            background: linear-gradient(135deg, var(--white) 0%, var(--fuchsia-light) 50%, var(--neon-pink) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -89,7 +93,7 @@
 
         .sub-promise {
             font-size: 1.4rem;
-            color: var(--gray-text);
+            color: var(--lavender);
             max-width: 700px;
             margin: 0 auto 3rem;
             line-height: 1.8;
@@ -111,23 +115,24 @@
         .cta-button {
             display: inline-block;
             padding: 1.2rem 3rem;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-            color: var(--black);
+            background: linear-gradient(135deg, var(--fuchsia) 0%, var(--neon-pink) 100%);
+            color: var(--white);
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
             border-radius: 50px;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+            box-shadow: 0 10px 30px rgba(192,38,211,0.4);
             opacity: 0;
             animation: fadeInUp 1s ease 0.9s forwards;
             position: relative;
             overflow: hidden;
+            border: none;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(212,175,55,0.4);
+            box-shadow: 0 20px 40px rgba(192,38,211,0.6);
         }
 
         .cta-button::after {
@@ -143,7 +148,7 @@
         /* Authority Section */
         .authority {
             padding: 6rem 2rem;
-            background: var(--dark-gray);
+            background: linear-gradient(180deg, var(--dark-purple) 0%, var(--deep-purple) 100%);
             text-align: center;
         }
 
@@ -169,25 +174,27 @@
 
         .stat-item {
             padding: 2rem;
-            border: 1px solid rgba(212,175,55,0.2);
+            background: rgba(45,27,78,0.5);
+            border: 1px solid rgba(192,38,211,0.3);
             border-radius: 15px;
             transition: all 0.3s ease;
         }
 
         .stat-item:hover {
-            border-color: var(--gold);
+            border-color: var(--fuchsia);
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(192,38,211,0.2);
         }
 
         .stat-number {
             font-size: 3rem;
             font-weight: 800;
-            color: var(--gold);
+            color: var(--fuchsia-light);
             display: block;
         }
 
         .stat-label {
-            color: var(--gray-text);
+            color: var(--lavender);
             margin-top: 0.5rem;
         }
 
@@ -206,17 +213,17 @@
         }
 
         .testimonial {
-            background: var(--dark-gray);
+            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--deep-purple) 100%);
             padding: 2.5rem;
             border-radius: 20px;
-            border-left: 4px solid var(--gold);
+            border-left: 4px solid var(--fuchsia);
             position: relative;
         }
 
         .testimonial::before {
             content: '"';
             font-size: 4rem;
-            color: var(--gold);
+            color: var(--fuchsia);
             opacity: 0.3;
             position: absolute;
             top: 10px;
@@ -228,6 +235,7 @@
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
+            color: var(--lavender);
         }
 
         .testimonial-author {
@@ -240,12 +248,12 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            background: linear-gradient(135deg, var(--fuchsia), var(--neon-pink));
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: var(--black);
+            color: var(--white);
         }
 
         .author-info h4 {
@@ -254,14 +262,14 @@
         }
 
         .author-info span {
-            color: var(--gold);
+            color: var(--fuchsia-light);
             font-size: 0.9rem;
         }
 
         /* Methodology - Lógica sin técnica */
         .methodology {
             padding: 6rem 2rem;
-            background: linear-gradient(180deg, var(--dark-gray) 0%, var(--black) 100%);
+            background: linear-gradient(180deg, var(--deep-purple) 0%, var(--dark-purple) 100%);
         }
 
         .process-container {
@@ -276,7 +284,7 @@
             left: 10%;
             right: 10%;
             height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            background: linear-gradient(90deg, var(--fuchsia), var(--neon-pink));
             transform: translateY(-50%);
             z-index: 1;
         }
@@ -291,28 +299,28 @@
         .step {
             text-align: center;
             width: 30%;
-            background: var(--black);
+            background: rgba(26,11,46,0.8);
             padding: 2rem;
             border-radius: 15px;
-            border: 2px solid rgba(212,175,55,0.3);
+            border: 2px solid rgba(192,38,211,0.3);
         }
 
         .step-icon {
             width: 60px;
             height: 60px;
-            background: var(--gold);
+            background: linear-gradient(135deg, var(--fuchsia), var(--neon-pink));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
             font-size: 1.5rem;
-            color: var(--black);
+            color: var(--white);
             font-weight: bold;
         }
 
         .step h3 {
-            color: var(--gold);
+            color: var(--fuchsia-light);
             margin-bottom: 0.5rem;
         }
 
@@ -324,7 +332,7 @@
         /* Trust Reinforcement */
         .trust {
             padding: 6rem 2rem;
-            background: var(--dark-gray);
+            background: linear-gradient(180deg, var(--dark-purple) 0%, var(--black) 100%);
             text-align: center;
         }
 
@@ -332,9 +340,9 @@
             max-width: 800px;
             margin: 3rem auto;
             padding: 3rem;
-            border: 2px solid var(--gold);
+            border: 2px solid var(--fuchsia);
             border-radius: 20px;
-            background: rgba(212,175,55,0.05);
+            background: rgba(192,38,211,0.05);
         }
 
         .guarantee-icon {
@@ -344,7 +352,7 @@
 
         .guarantee-box h3 {
             font-size: 1.8rem;
-            color: var(--gold);
+            color: var(--fuchsia-light);
             margin-bottom: 1rem;
         }
 
@@ -361,19 +369,19 @@
 
         .faq-item {
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(212,175,55,0.2);
+            border: 1px solid rgba(192,38,211,0.2);
             border-radius: 10px;
             overflow: hidden;
             transition: all 0.3s;
         }
 
         .faq-item:hover {
-            border-color: var(--gold);
+            border-color: var(--fuchsia);
         }
 
         .faq-question {
             padding: 1.5rem;
-            background: var(--dark-gray);
+            background: linear-gradient(90deg, var(--dark-purple) 0%, var(--deep-purple) 100%);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -383,7 +391,7 @@
         }
 
         .faq-question:hover {
-            background: rgba(212,175,55,0.1);
+            background: linear-gradient(90deg, var(--deep-purple) 0%, var(--purple) 100%);
         }
 
         .faq-answer {
@@ -392,6 +400,7 @@
             overflow: hidden;
             transition: all 0.3s ease;
             color: var(--gray-text);
+            background: rgba(26,11,46,0.5);
         }
 
         .faq-item.active .faq-answer {
@@ -405,14 +414,14 @@
 
         .faq-question::after {
             content: '▼';
-            color: var(--gold);
+            color: var(--fuchsia);
             transition: transform 0.3s;
         }
 
         /* Final CTA */
         .final-cta {
             padding: 8rem 2rem;
-            background: linear-gradient(135deg, #1a1a2e 0%, var(--black) 100%);
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--black) 100%);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -425,7 +434,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c026d3' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             opacity: 0.5;
         }
 
@@ -439,14 +448,14 @@
         .final-cta h2 {
             font-size: 3rem;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--white) 0%, var(--gold) 100%);
+            background: linear-gradient(135deg, var(--white) 0%, var(--fuchsia-light) 50%, var(--neon-pink) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .final-cta p {
             font-size: 1.3rem;
-            color: var(--gray-text);
+            color: var(--lavender);
             margin-bottom: 3rem;
         }
 
@@ -454,11 +463,11 @@
             display: inline-block;
             padding: 1.5rem 4rem;
             background: transparent;
-            color: var(--gold);
+            color: var(--fuchsia-light);
             text-decoration: none;
             font-weight: 700;
             font-size: 1.2rem;
-            border: 2px solid var(--gold);
+            border: 2px solid var(--fuchsia);
             border-radius: 50px;
             transition: all 0.3s ease;
             position: relative;
@@ -466,9 +475,10 @@
         }
 
         .cta-final-button:hover {
-            background: var(--gold);
-            color: var(--black);
+            background: linear-gradient(135deg, var(--fuchsia) 0%, var(--neon-pink) 100%);
+            color: var(--white);
             transform: scale(1.05);
+            border-color: transparent;
         }
 
         /* Footer */
@@ -477,7 +487,7 @@
             background: var(--black);
             text-align: center;
             color: var(--gray-text);
-            border-top: 1px solid rgba(212,175,55,0.2);
+            border-top: 1px solid rgba(192,38,211,0.2);
         }
 
         /* Responsive */
@@ -628,7 +638,7 @@
         
         <div style="text-align: center; margin-top: 4rem; max-width: 700px; margin-left: auto; margin-right: auto;">
             <p style="color: var(--gray-text); font-size: 1.1rem;">
-                <strong style="color: var(--gold);">No enseñamos el método paso a paso porque no es un curso.</strong><br>
+                <strong style="color: var(--fuchsia-light);">No enseñamos el método paso a paso porque no es un curso.</strong><br>
                 Es un sistema operativo completo que implementamos en tu cuenta para que crezca 
                 mientras duermes, sin que tengas que aprender marketing ni contratar a nadie más.
             </p>
@@ -642,7 +652,7 @@
         <div class="guarantee-box">
             <div class="guarantee-icon">🛡️</div>
             <h3>Sistema de Resultados Compartidos</h3>
-            <p style="color: var(--gray-text); font-size: 1.1rem; line-height: 1.8;">
+            <p style="color: var(--lavender); font-size: 1.1rem; line-height: 1.8;">
                 No cobramos si no crecemos tus ingresos. Nuestro modelo se basa en un porcentaje 
                 de los nuevos ingresos que generamos, no de tu base actual. Si no escalamos, 
                 no ganamos. Así de simple.
@@ -650,7 +660,7 @@
         </div>
         
         <div style="margin-top: 3rem;">
-            <p style="color: var(--gold); font-size: 1.2rem; margin-bottom: 1rem;">
+            <p style="color: var(--fuchsia-light); font-size: 1.2rem; margin-bottom: 1rem;">
                 ✓ Equipo de chatters nativos en inglés y español<br>
                 ✓ Estrategas de contenido con experiencia en top 0.1%<br>
                 ✓ Sistemas de upselling probados en 150+ cuentas<br>
