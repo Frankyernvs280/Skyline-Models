@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxGrowth Agency | Escala tu OnlyFans sin trabajar más horas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --gold: #d4af37;
+            --gold-light: #f4d03f;
+            --white: #ffffff;
+            --gray-text: #a0a0a0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section - Promesa Principal */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--black) 0%, #1a1a2e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .pain-point {
+            color: var(--gold);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .sub-promise {
+            font-size: 1.4rem;
+            color: var(--gray-text);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(212,175,55,0.4);
+        }
+
+        .cta-button::after {
+            content: '→';
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Authority Section */
+        .authority {
+            padding: 6rem 2rem;
+            background: var(--dark-gray);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .section-subtitle {
+            color: var(--gray-text);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--gray-text);
+            margin-top: 0.5rem;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 6rem 2rem;
+            background: var(--black);
+        }
+
+        .testimonials {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: var(--dark-gray);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border-left: 4px solid var(--gold);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--black);
+        }
+
+        .author-info h4 {
+            color: var(--white);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info span {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        /* Methodology - Lógica sin técnica */
+        .methodology {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--dark-gray) 0%, var(--black) 100%);
+        }
+
+        .process-container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            position: relative;
+        }
+
+        .process-line {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step {
+            text-align: center;
+            width: 30%;
+            background: var(--black);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(212,175,55,0.3);
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: var(--black);
+            font-weight: bold;
+        }
+
+        .step h3 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+        }
+
+        /* Trust Reinforcement */
+        .trust {
+            padding: 6rem 2rem;
+            background: var(--dark-gray);
+            text-align: center;
+        }
+
+        .guarantee-box {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 3rem;
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            background: rgba(212,175,55,0.05);
+        }
+
+        .guarantee-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .guarantee-box h3 {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 2rem;
+            background: var(--black);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--gold);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--dark-gray);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(212,175,55,0.1);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--gray-text);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-question::after {
+            content: '▼';
+            color: var(--gold);
+            transition: transform 0.3s;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, var(--black) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            color: var(--gray-text);
+            margin-bottom: 3rem;
+        }
+
+        .cta-final-button {
+            display: inline-block;
+            padding: 1.5rem 4rem;
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: 2px solid var(--gold);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-final-button:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--black);
+            text-align: center;
+            color: var(--gray-text);
+            border-top: 1px solid rgba(212,175,55,0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .process-line {
+                display: none;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .step {
+                width: 100%;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero: Promesa Principal -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="pain-point">¿Cansada de vivir pegada al móvil?</div>
+            <h1>Deja de perder horas gestionando chats y contenido. Escala tu OnlyFans mientras trabajas menos.</h1>
+            <p class="sub-promise">
+                Transformamos tu cuenta en un negocio automatizado que factura 5 cifras mensuales 
+                sin que tú tengas que estar disponible 24/7. Tú creas, nosotros convertimos.
+            </p>
+            <a href="#contacto" class="cta-button">Ver si mi cuenta califica</a>
+        </div>
+    </section>
+
+    <!-- Autoridad -->
+    <section class="authority fade-in">
+        <h2 class="section-title">Resultados que hablan</h2>
+        <p class="section-subtitle">No prometemos, demostramos</p>
+        
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">€2.4M+</span>
+                <div class="stat-label">Generados para creadoras en 2024</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">150+</span>
+                <div class="stat-label">Cuentas escaladas al top 1%</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">-85%</span>
+                <div class="stat-label">Menos tiempo en gestión diaria</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">3x</span>
+                <div class="stat-label">Ingreso promedio en 90 días</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prueba Social -->
+    <section class="social-proof fade-in">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 4rem;">Lo que dicen nuestras creadoras</h2>
+        
+        <div class="testimonials">
+            <div class="testimonial">
+                <p class="testimonial-text">
+                    Pasé de estar 8 horas diarias respondiendo mensajes a dedicar solo 2 horas a crear contenido. 
+                    Mis ingresos subieron un 240% en tres meses. Lo mejor es que por fin tengo vida social otra vez.
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ML</div>
+                    <div class="author-info">
+                        <h4>María L.</h4>
+                        <span>Top 0.5% | 45k fans</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">
+                    Tenía miedo de delegar mis chats, pero su equipo entendió perfectamente mi voz y mi marca. 
+                    Ahora duplicamos suscripción mensual sin que yo toque el móvil los fines de semana.
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SC</div>
+                    <div class="author-info">
+                        <h4>Sofía C.</h4>
+                        <span>Top 0.8% | 32k fans</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">
+                    Llevaba 6 meses estancada en los mismos ingresos. En 60 días con ellos rompí mi techo 
+                    de ingresos y por primera vez siento que tengo un negocio real, no un trabajo exhaustivo.
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AR</div>
+                    <div class="author-info">
+                        <h4>Ana R.</h4>
+                        <span>Top 1.2% | 28k fans</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metodología Simplificada -->
+    <section class="methodology fade-in">
+        <h2 class="section-title" style="text-align: center;">De la sobrecarga al crecimiento sistemático</h2>
+        <p class="section-subtitle" style="text-align: center;">Un proceso probado, no magia</p>
+        
+        <div class="process-container">
+            <div class="process-line"></div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon">A</div>
+                    <h3>Situación Actual</h3>
+                    <p>Vives pegada al móvil, ingresos estancados, sin tiempo para ti, agotamiento creativo</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">→</div>
+                    <h3>Nuestro Sistema</h3>
+                    <p>Equipo especializado en conversión, automatización inteligente, estrategia de contenido escalable</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">B</div>
+                    <h3>Resultado</h3>
+                    <p>Ingresos creciendo automáticamente, tú creando solo contenido premium, libertad de tiempo</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 4rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <p style="color: var(--gray-text); font-size: 1.1rem;">
+                <strong style="color: var(--gold);">No enseñamos el método paso a paso porque no es un curso.</strong><br>
+                Es un sistema operativo completo que implementamos en tu cuenta para que crezca 
+                mientras duermes, sin que tengas que aprender marketing ni contratar a nadie más.
+            </p>
+        </div>
+    </section>
+
+    <!-- Refuerzo de Confianza -->
+    <section class="trust fade-in">
+        <h2 class="section-title">Garantía de resultados o devolvemos tu inversión</h2>
+        
+        <div class="guarantee-box">
+            <div class="guarantee-icon">🛡️</div>
+            <h3>Sistema de Resultados Compartidos</h3>
+            <p style="color: var(--gray-text); font-size: 1.1rem; line-height: 1.8;">
+                No cobramos si no crecemos tus ingresos. Nuestro modelo se basa en un porcentaje 
+                de los nuevos ingresos que generamos, no de tu base actual. Si no escalamos, 
+                no ganamos. Así de simple.
+            </p>
+        </div>
+        
+        <div style="margin-top: 3rem;">
+            <p style="color: var(--gold); font-size: 1.2rem; margin-bottom: 1rem;">
+                ✓ Equipo de chatters nativos en inglés y español<br>
+                ✓ Estrategas de contenido con experiencia en top 0.1%<br>
+                ✓ Sistemas de upselling probados en 150+ cuentas<br>
+                ✓ Confidencialidad absoluta y contratos NDAs
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ - Resolución de Objeciones -->
+    <section class="faq fade-in">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Preguntas que necesitas respuesta</h2>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">¿Cómo mantienen mi voz y personalidad en los chats?</div>
+                <div class="faq-answer">
+                    Creamos un manual de marca personal contigo en la primera semana. Cada chatter pasa 
+                    por entrenamiento específico con tu estilo de comunicación, humor y límites. 
+                    Tú apruebas las primeras 50 interacciones antes de que respondan solos.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Y si mis fans se dan cuenta de que no soy yo?</div>
+                <div class="faq-answer">
+                    Nuestro ratio de conversión aumenta precisamente porque respondemos en segundos, 
+                    no en horas. Los fans valoran la atención inmediata. Además, tú sigues interactuando 
+                    en contenido y livestreams; nosotros gestionamos la repetitiva 24/7.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Cuánto tiempo tarda en verse resultados?</div>
+                <div class="faq-answer">
+                    Optimización de chats: 7-14 días. Incremento de ingresos: 30-60 días. 
+                    Escalado completo al top 1%: 90 días. Todo depende de tu base actual, 
+                    pero trabajamos con mínimos garantizados desde el mes 1.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Qué pasa con el contenido explícito?</div>
+                <div class="faq-answer">
+                    Tú sigues creando TODO el contenido visual. Nosotros nunca accedemos a tu cuenta 
+                    de creación, solo a la gestión de mensajes y marketing. Tú mantienes control 
+                    total sobre tu imagen y límites.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Por qué no hacerlo yo sola contratando freelancers?</div>
+                <div class="faq-answer">
+                    Puedes intentarlo. La diferencia es que ya hemos probado 200+ chatters, 
+                    tenemos scripts de conversión probados, sistemas de CRM específicos para OF, 
+                    y un equipo que trabaja 24/7. Lo que te tomaría 6 meses aprender, 
+                    nosotros lo implementamos en 7 días.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final - Desde la Selección -->
+    <section class="final-cta" id="contacto">
+        <div class="final-cta-content">
+            <h2>No aceptamos cualquier cuenta</h2>
+            <p>
+                Solo trabajamos con creadoras comprometidas que ya generan mínimo $3k/mes 
+                y quieren escalar seriamente. Si es tu caso, cuéntanos tu situación.
+            </p>
+            <a href="#" class="cta-final-button" onclick="alert('Formulario de aplicación - Aquí iría tu calendly o formulario de contacto')">
+                Aplicar a la agencia →
+            </a>
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--gray-text);">
+                Respuesta en menos de 24h. Consultoría inicial gratuita.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 LuxGrowth Agency. Resultados reales, crecimiento real.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">No afiliado con OnlyFans. Servicio independiente de gestión.</p>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Open clicked if wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
