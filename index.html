@@ -145,7 +145,7 @@
             transform: translateX(5px);
         }
 
-        /* Authority Section */
+        /* Authority Section - GALERÍA DE RESULTADOS */
         .authority {
             padding: 6rem 2rem;
             background: linear-gradient(180deg, var(--dark-purple) 0%, var(--deep-purple) 100%);
@@ -164,38 +164,48 @@
             margin-bottom: 4rem;
         }
 
-        .stats-grid {
+        /* GALERÍA CON BORDES NEGROS */
+        .results-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 3rem auto 0;
+            padding: 0 2rem;
         }
 
-        .stat-item {
-            padding: 2rem;
-            background: rgba(45,27,78,0.5);
-            border: 1px solid rgba(192,38,211,0.3);
-            border-radius: 15px;
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 4px solid #000000;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
             transition: all 0.3s ease;
+            background: #000000;
         }
 
-        .stat-item:hover {
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(192,38,211,0.3), 0 0 0 4px #000000;
             border-color: var(--fuchsia);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(192,38,211,0.2);
         }
 
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--fuchsia-light);
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
             display: block;
+            border-bottom: 3px solid #000000;
         }
 
-        .stat-label {
-            color: var(--lavender);
-            margin-top: 0.5rem;
+        .gallery-caption {
+            background: linear-gradient(135deg, #000000 0%, #1a0b2e 100%);
+            color: var(--fuchsia-light);
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-top: 2px solid rgba(192,38,211,0.3);
         }
 
         /* Social Proof */
@@ -504,6 +514,16 @@
             .step {
                 width: 100%;
             }
+
+            .results-gallery {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+                gap: 1.2rem;
+            }
+            
+            .gallery-item img {
+                height: 250px;
+            }
         }
 
         /* Scroll animations */
@@ -534,36 +554,45 @@
         </div>
     </section>
 
-    <!-- Autoridad -->
-   <section class="authority fade-in">
-    <h2 class="section-title">Resultados que hablan</h2>
-    <p class="section-subtitle">No prometemos, demostramos</p>
-    
-    <div class="stats-grid">
-        <div class="stat-item">
-            <span class="stat-number">€2.4M+</span>
-            ...
-        </div>
-        <!-- más cajas aquí -->
-    </div>
-</section>
+    <!-- SECCIÓN: RESULTADOS QUE HABLAN (GALERÍA CON BORDES NEGROS) -->
+    <section class="authority fade-in">
+        <h2 class="section-title">Resultados que hablan</h2>
+        <p class="section-subtitle">No prometemos, demostramos</p>
         
-        <div class="stats-grid">
-            <div class="stat-item">
-                <span class="stat-number">€2.4M+</span>
-                <div class="stat-label">Generados para creadoras en 2024</div>
+        <div class="results-gallery">
+            <div class="gallery-item">
+                <img src="resultado1.jpg" alt="4.4M visualizaciones en 90 días">
+                <div class="gallery-caption">+365% alcance orgánico</div>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">150+</span>
-                <div class="stat-label">Cuentas escaladas al top 1%</div>
+            
+            <div class="gallery-item">
+                <img src="resultado2.jpg" alt="2.1M visualizaciones en 30 días">
+                <div class="gallery-caption">+656% crecimiento mensual</div>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">-85%</span>
-                <div class="stat-label">Menos tiempo en gestión diaria</div>
+            
+            <div class="gallery-item">
+                <img src="resultado3.jpg" alt="Viral 4k a 11k followers">
+                <div class="gallery-caption">Viral: 4k → 11k en 30 días</div>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">3x</span>
-                <div class="stat-label">Ingreso promedio en 90 días</div>
+            
+            <div class="gallery-item">
+                <img src="resultado4.jpg" alt="12.8k nuevos seguidores">
+                <div class="gallery-caption">+12.8k seguidores orgánicos</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="resultado5.jpg" alt="Sistema de gestión de contenido">
+                <div class="gallery-caption">Sistema de contenido probado</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="resultado6.jpg" alt="Gestión de múltiples cuentas">
+                <div class="gallery-caption">Escalado multi-cuenta</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="resultado7.jpg" alt="Reporte diario de facturación">
+                <div class="gallery-caption">+173 USD en 7 horas de chatting</div>
             </div>
         </div>
     </section>
