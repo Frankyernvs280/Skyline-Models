@@ -32,7 +32,7 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section - Promesa Principal */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -145,7 +145,7 @@
             transform: translateX(5px);
         }
 
-        /* Authority Section - GALERÍA DE RESULTADOS */
+        /* GALERÍA DE RESULTADOS - FORMATO TELÉFONO */
         .authority {
             padding: 6rem 2rem;
             background: linear-gradient(180deg, var(--dark-purple) 0%, var(--deep-purple) 100%);
@@ -164,48 +164,87 @@
             margin-bottom: 4rem;
         }
 
-        /* GALERÍA CON BORDES NEGROS */
-        .results-gallery {
+        .phone-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
             margin: 3rem auto 0;
             padding: 0 2rem;
         }
 
-        .gallery-item {
-            position: relative;
-            border-radius: 12px;
+        .phone-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .phone-frame {
+            width: 100%;
+            max-width: 220px;
+            aspect-ratio: 9/19;
+            border-radius: 25px;
             overflow: hidden;
             border: 4px solid #000000;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-            transition: all 0.3s ease;
-            background: #000000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 2px rgba(192,38,211,0.3);
+            background: #000;
+            position: relative;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(192,38,211,0.3), 0 0 0 4px #000000;
-            border-color: var(--fuchsia);
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 20px;
+            background: #000;
+            border-radius: 0 0 15px 15px;
+            z-index: 10;
         }
 
-        .gallery-item img {
+        .phone-frame img {
             width: 100%;
-            height: 220px;
+            height: 100%;
             object-fit: cover;
-            display: block;
-            border-bottom: 3px solid #000000;
+            object-position: top;
         }
 
-        .gallery-caption {
-            background: linear-gradient(135deg, #000000 0%, #1a0b2e 100%);
+        .phone-caption {
+            margin-top: 1rem;
             color: var(--fuchsia-light);
-            padding: 1rem;
-            text-align: center;
             font-weight: 600;
             font-size: 0.95rem;
-            border-top: 2px solid rgba(192,38,211,0.3);
+            text-align: center;
+            padding: 0.5rem 1rem;
+            background: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            border: 1px solid rgba(192,38,211,0.3);
+        }
+
+        @media (min-width: 1200px) {
+            .phone-gallery {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .phone-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .phone-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .phone-frame {
+                max-width: 160px;
+            }
         }
 
         /* Social Proof */
@@ -276,7 +315,7 @@
             font-size: 0.9rem;
         }
 
-        /* Methodology - Lógica sin técnica */
+        /* Methodology */
         .methodology {
             padding: 6rem 2rem;
             background: linear-gradient(180deg, var(--deep-purple) 0%, var(--dark-purple) 100%);
@@ -339,7 +378,22 @@
             font-size: 0.95rem;
         }
 
-        /* Trust Reinforcement */
+        @media (max-width: 768px) {
+            .process-line {
+                display: none;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .step {
+                width: 100%;
+            }
+        }
+
+        /* Trust */
         .trust {
             padding: 6rem 2rem;
             background: linear-gradient(180deg, var(--dark-purple) 0%, var(--black) 100%);
@@ -366,7 +420,7 @@
             margin-bottom: 1rem;
         }
 
-        /* FAQ Section */
+        /* FAQ */
         .faq {
             padding: 6rem 2rem;
             background: var(--black);
@@ -500,32 +554,6 @@
             border-top: 1px solid rgba(192,38,211,0.2);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .process-line {
-                display: none;
-            }
-            
-            .process-steps {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
-            .step {
-                width: 100%;
-            }
-
-            .results-gallery {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
-                gap: 1.2rem;
-            }
-            
-            .gallery-item img {
-                height: 250px;
-            }
-        }
-
         /* Scroll animations */
         .fade-in {
             opacity: 0;
@@ -541,7 +569,7 @@
 </head>
 <body>
 
-    <!-- Hero: Promesa Principal -->
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <div class="pain-point">¿Cansada de vivir pegada al móvil?</div>
@@ -554,50 +582,57 @@
         </div>
     </section>
 
-    <!-- SECCIÓN: RESULTADOS QUE HABLAN (GALERÍA CON BORDES NEGROS) -->
+    <!-- Resultados que hablan - Galería Teléfono -->
     <section class="authority fade-in">
         <h2 class="section-title">Resultados que hablan</h2>
-        <p class="section-subtitle">No prometemos, demostramos</p>
+        <p class="section-subtitle">Capturas reales de cuentas que escalamos</p>
         
-        <div class="results-gallery">
-            <div class="gallery-item">
-                <img src="resultado1.jpg" alt="4.4M visualizaciones en 90 días">
-                <div class="gallery-caption">+365% alcance orgánico</div>
+        <div class="phone-gallery">
+            <div class="phone-item">
+                <div class="phone-frame">
+                    <img src="resultado1.jpg.jpeg" alt="Viral 4k a 11k">
+                </div>
+                <div class="phone-caption">Viral: 4k → 11k en 30 días</div>
             </div>
             
-            <div class="gallery-item">
-                <img src="resultado2.jpg" alt="2.1M visualizaciones en 30 días">
-                <div class="gallery-caption">+656% crecimiento mensual</div>
+            <div class="phone-item">
+                <div class="phone-frame">
+                    <img src="resultado2.jpg.jpeg" alt="12.8k seguidores">
+                </div>
+                <div class="phone-caption">+12.8k seguidores orgánicos</div>
             </div>
             
-            <div class="gallery-item">
-                <img src="resultado3.jpg" alt="Viral 4k a 11k followers">
-                <div class="gallery-caption">Viral: 4k → 11k en 30 días</div>
+            <div class="phone-item">
+                <div class="phone-frame">
+                    <img src="resultado3.jpg.jpeg" alt="Sistema gestión">
+                </div>
+                <div class="phone-caption">Sistema de contenido probado</div>
             </div>
             
-            <div class="gallery-item">
-                <img src="resultado4.jpg" alt="12.8k nuevos seguidores">
-                <div class="gallery-caption">+12.8k seguidores orgánicos</div>
+            <div class="phone-item">
+                <div class="phone-frame">
+                    <img src="resultado4.jpg.jpeg" alt="Multi-cuenta">
+                </div>
+                <div class="phone-caption">Escalado multi-cuenta</div>
             </div>
             
-            <div class="gallery-item">
-                <img src="resultado5.jpg" alt="Sistema de gestión de contenido">
-                <div class="gallery-caption">Sistema de contenido probado</div>
+            <div class="phone-item">
+                <div class="phone-frame">
+                    <img src="resultado5.jpg.jpeg" alt="2.1M visualizaciones">
+                </div>
+                <div class="phone-caption">+656% crecimiento mensual</div>
             </div>
             
-            <div class="gallery-item">
-                <img src="resultado6.jpg" alt="Gestión de múltiples cuentas">
-                <div class="gallery-caption">Escalado multi-cuenta</div>
-            </div>
-            
-            <div class="gallery-item">
-                <img src="resultado7.jpg" alt="Reporte diario de facturación">
-                <div class="gallery-caption">+173 USD en 7 horas de chatting</div>
+            <div class="phone-item">
+                <div class="phone-frame">
+                    <img src="resultado6.jpg.jpeg" alt="173 USD">
+                </div>
+                <div class="phone-caption">+173 USD en 7 horas</div>
             </div>
         </div>
     </section>
 
-    <!-- Prueba Social -->
+    <!-- Testimonios -->
     <section class="social-proof fade-in">
         <h2 class="section-title" style="text-align: center; margin-bottom: 4rem;">Lo que dicen nuestras creadoras</h2>
         
@@ -646,7 +681,7 @@
         </div>
     </section>
 
-    <!-- Metodología Simplificada -->
+    <!-- Metodología -->
     <section class="methodology fade-in">
         <h2 class="section-title" style="text-align: center;">De la sobrecarga al crecimiento sistemático</h2>
         <p class="section-subtitle" style="text-align: center;">Un proceso probado, no magia</p>
@@ -683,7 +718,7 @@
         </div>
     </section>
 
-    <!-- Refuerzo de Confianza -->
+    <!-- Garantía -->
     <section class="trust fade-in">
         <h2 class="section-title">Garantía de resultados o devolvemos tu inversión</h2>
         
@@ -707,7 +742,7 @@
         </div>
     </section>
 
-    <!-- FAQ - Resolución de Objeciones -->
+    <!-- FAQ -->
     <section class="faq fade-in">
         <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Preguntas que necesitas respuesta</h2>
         
@@ -760,7 +795,7 @@
         </div>
     </section>
 
-    <!-- CTA Final - Desde la Selección -->
+    <!-- CTA Final -->
     <section class="final-cta" id="contacto">
         <div class="final-cta-content">
             <h2>No aceptamos cualquier cuenta</h2>
@@ -789,12 +824,10 @@
                 const item = question.parentElement;
                 const isActive = item.classList.contains('active');
                 
-                // Close all
                 document.querySelectorAll('.faq-item').forEach(faq => {
                     faq.classList.remove('active');
                 });
                 
-                // Open clicked if wasn't active
                 if (!isActive) {
                     item.classList.add('active');
                 }
